@@ -1,3 +1,4 @@
 argparse==1.2.1
 pymongo==2.2.1
+tweepy==1.10
 wsgiref==0.1.2
