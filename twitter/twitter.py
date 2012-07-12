@@ -9,9 +9,9 @@ api = tweepy.API()
 
 connection = Connection('localhost', 27017)
 
-raw_tweets_db = connection['raw_tweets']
+db = connection['TG']
 
-posts = raw_tweets_db.posts
+raw_tweets = db.raw_tweets
 
 for doenca in doencas:
     tweets = api.search(q=doenca, rpp=100)
@@ -23,4 +23,4 @@ for doenca in doencas:
             'geo': tweet.geo,
         }
 
-        posts.insert(t)
+        raw_tweets.insert(t)
