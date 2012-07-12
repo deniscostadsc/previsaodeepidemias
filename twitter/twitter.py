@@ -20,10 +20,13 @@ for doenca in doencas:
     for tweet in tweets:
         t = {
             'created_at': tweet.created_at,
-            'id': tweet.id,
+            'from_user': tweet.from_user,
             'from_user_id': tweet.from_user_id,
-            'text' : tweet.text,
             'geo': tweet.geo,
+            'id': tweet.id,
+            'iso_language_code': tweet.iso_language_code,
+            'source': tweet.source,
+            'text': tweet.text,
         }
 
         raw_tweets.insert(t)
