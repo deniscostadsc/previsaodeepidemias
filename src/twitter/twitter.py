@@ -4,7 +4,7 @@
 from pymongo import Connection
 import tweepy
 
-def get_tweets(termos):
+def get_tweets(terms):
     api = tweepy.API()
     
     connection = Connection('localhost', 27017)
@@ -15,8 +15,8 @@ def get_tweets(termos):
     
     raw_tweets = db.raw_tweets
     
-    for termo in termos:
-        tweets = api.search(q=termo, rpp=100)
+    for term in terms:
+        tweets = api.search(q=term, rpp=100)
         for tweet in tweets:
             t = {
                 'created_at': tweet.created_at,
