@@ -3,8 +3,11 @@
 
 from pymongo import Connection
 import tweepy
+import sys
 
-doencas = ['dengue', u'malária', 'gripe', u'doença de chagas', u'cólera', 'tuberculose']
+sys.path.append('..')
+
+from utils.doencas import doencas
 
 api = tweepy.API()
 
