@@ -3,7 +3,7 @@
 doencas = [
     'dengue',
     'gripe',
-    'tuberculose'
+    'tuberculose',
     u'cólera',
     u'doença de chagas',
     u'malária',
