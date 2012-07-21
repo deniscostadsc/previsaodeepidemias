@@ -4,7 +4,7 @@
 from pymongo import Connection
 import tweepy
 
-doencas = ['dengue', u'malária']
+doencas = ['dengue', u'malária', 'gripe', u'doença de chagas', u'cólera', 'tuberculose']
 
 api = tweepy.API()
 
