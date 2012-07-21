@@ -2,10 +2,10 @@
 
 doencas = [
     'dengue',
-    u'malária',
     'gripe',
-    u'doença de chagas',
-    u'cólera',
     'tuberculose'
+    u'cólera',
+    u'doença de chagas',
+    u'malária',
 ]
 
