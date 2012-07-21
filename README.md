@@ -1,4 +1,5 @@
-TrabalhoDeGraduacao
-===================
+Previsão de Epidemias
+=====================
 
-TrabalhoDeGraduacao
+Trabalho sobre previsão de epidemias usando como fonte de dados o Twitter.
+
