@@ -13,16 +13,16 @@ doencas = [
     u'malária',
 ]
 
+api = tweepy.API()
+
+connection = Connection('localhost', 27017)
+db = connection['TG']
+db.raw_tweets.ensure_index('id', unique=True)
+
+raw_tweets = db.raw_tweets
+
 
 def get_tweets(terms):
-    api = tweepy.API()
-
-    connection = Connection('localhost', 27017)
-    db = connection['TG']
-    db.raw_tweets.ensure_index('id', unique=True)
-
-    raw_tweets = db.raw_tweets
-
     for term in terms:
         tweets = api.search(q=term, rpp=100)
         for tweet in tweets:
