@@ -4,7 +4,7 @@
 from pymongo import Connection
 import tweepy
 
-doencas = [
+diseases = [
     'dengue',
     'gripe',
     'tuberculose',
@@ -29,4 +29,4 @@ def get_tweets(terms):
             raw_tweets.insert(tweet)
 
 if __name__ == '__main__':
-    get_tweets(doencas)
+    get_tweets(diseases)
