@@ -8,7 +8,7 @@ def geocoding(**kwargs):
     kwargs.update({'sensor': 'false'})
 
     if 'lat' in kwargs and 'lng' not in kwargs or 'lng' in kwargs and 'lat' not in kwargs:
-        raise TypeError('You should pass lng too!')
+        raise TypeError('You should pass lat and lng!')
 
     if 'lat' in kwargs:
         lat = kwargs.pop('lat')
