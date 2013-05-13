@@ -16,7 +16,7 @@ diseases = [
 api = tweepy.API()
 
 connection = Connection('localhost', 27017)
-db = connection['TG']
+db = connection['previsaodeepidemias']
 db.raw_tweets.ensure_index('id', unique=True)
 
 raw_tweets = db.raw_tweets
