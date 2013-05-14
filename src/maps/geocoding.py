@@ -5,7 +5,8 @@ GEOCODING_URL = 'http://maps.googleapis.com/maps/api/geocode/json'
 
 
 def geocoding(**kwargs):
-    kwargs.update({'sensor': 'false'})
+    if 'sensor' not in kwargs:
+        kwargs.update({'sensor': 'false'})
 
     if 'lat' in kwargs and 'lng' not in kwargs or 'lng' in kwargs and 'lat' not in kwargs:
         raise TypeError('You should pass lat and lng!')
