@@ -12,7 +12,6 @@ def geocoding(**kwargs):
 
     if 'lat' in kwargs:
         lat = kwargs.pop('lat')
-    if 'lng' in kwargs:
         lng = kwargs.pop('lng')
         kwargs.update({'latlng': '%s,%s' % (str(lat), str(lng))})
 
