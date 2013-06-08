@@ -8,7 +8,7 @@ class OverQueryLimit(Exception):
 GEOCODING_URL = 'http://maps.googleapis.com/maps/api/geocode/json'
 
 
-def geocoding(**kwargs):
+def _geocoding(**kwargs):
     if 'sensor' not in kwargs:
         kwargs.update({'sensor': 'false'})
 
@@ -25,6 +25,12 @@ def geocoding(**kwargs):
 
     if response['status'] == 'OVER_QUERY_LIMIT':
         raise OverQueryLimit('Google said you are over your quota.')
+
+    return response
+
+
+def reverse_geocoding(**kwargs):
+    response = _geocoding(**kwargs)
 
     address_components = response['results'][0]['address_components']
 

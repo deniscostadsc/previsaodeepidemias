@@ -6,7 +6,7 @@ import thread
 from pymongo import Connection
 import tweepy
 
-from maps.geocoding import geocoding
+from maps.geocoding import reverse_geocoding
 
 diseases = [
     'dengue',
@@ -39,7 +39,7 @@ def geocode_and_save(tweet):
         lng = tweet.geo['coordinates'][1]
 
         if lat and lng:
-            location = geocoding(lat=lat, lng=lng)
+            location = reverse_geocoding(lat=lat, lng=lng)
 
             location_str = ', '.join(
                 [location[level] for level in 'city state country'.split() if level in location]
