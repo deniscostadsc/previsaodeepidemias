@@ -2,4 +2,4 @@
 
 cd $(dirname $0)
 
-python get_tweets.py
+python crawler.py
