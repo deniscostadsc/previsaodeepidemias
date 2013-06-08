@@ -1,16 +1,25 @@
 #!/usr/bin/env python
 # coding: utf-8
 
+import thread
+
 from pymongo import Connection
 import tweepy
 
 diseases = [
     'dengue',
+
     'gripe',
+    'gripado',
+    'gripada',
+
     'tuberculose',
+
     u'cólera',
-    u'doença de chagas',
+    'colera',
+
     u'malária',
+    'malaria'
 ]
 
 api = tweepy.API()
