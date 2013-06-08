@@ -1,6 +1,10 @@
 import urllib
 import json
 
+
+class OverQueryLimit(Exception):
+    pass
+
 GEOCODING_URL = 'http://maps.googleapis.com/maps/api/geocode/json'
 
 
@@ -18,6 +22,9 @@ def geocoding(**kwargs):
 
     url = '%s?%s' % (GEOCODING_URL, urllib.urlencode(kwargs))
     response = json.load(urllib.urlopen(url))
+
+    if response['status'] == 'OVER_QUERY_LIMIT':
+        raise OverQueryLimit('Google said you are over your quota.')
 
     address_components = response['results'][0]['address_components']
 
