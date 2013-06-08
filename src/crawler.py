@@ -41,6 +41,10 @@ def geocode_and_save(tweet):
         if lat and lng:
             location = geocoding(lat=lat, lng=lng)
 
+            location_str = ', '.join(
+                [location[level] for level in 'city state country'.split() if level in location]
+            )
+
             json = {
                 'created_at': tweet.created_at,
                 'from_user': tweet.from_user,
@@ -52,6 +56,7 @@ def geocode_and_save(tweet):
                 'id_str': tweet.id_str,
                 'iso_language_code': tweet.iso_language_code,
                 'location': location,
+                'location_str': location_str,
                 'profile_image_url': tweet.profile_image_url,
                 'profile_image_url_https': tweet.profile_image_url_https,
                 'source': tweet.source,

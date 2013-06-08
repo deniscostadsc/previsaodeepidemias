@@ -14,14 +14,23 @@ def geocoding(**kwargs):
     if 'lat' in kwargs:
         lat = kwargs.pop('lat')
         lng = kwargs.pop('lng')
-        kwargs.update({'latlng': '%s,%s' % (str(lat), str(lng))})
+        kwargs.update({'latlng': '%f,%f' % (lat, lng)})
 
     url = '%s?%s' % (GEOCODING_URL, urllib.urlencode(kwargs))
     response = json.load(urllib.urlopen(url))
 
-    result = []
-    leves = ['locality', 'administrative_area_level_1', 'country']
-    for component in response['results'][0]['address_components']:
-        if list(set(leves) & set(component['types'])):
-            result.append(component['long_name'])
-    return ', '.join(result)
+    address_components = response['results'][0]['address_components']
+
+    interesting_levels = {
+        'administrative_area_level_1': 'state',
+        'country': 'country',
+        'locality': 'city'
+    }
+
+    result = {}
+    for component in address_components:
+        level = list(set(interesting_levels) & set(component['types']))
+        if level:
+            result[interesting_levels[level[0]]] = component['long_name']
+
+    return result
