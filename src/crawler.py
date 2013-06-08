@@ -64,7 +64,7 @@ def get_tweets(terms):
     for term in terms:
         tweets = api.search(q=term, rpp=100)
         for tweet in tweets:
-            geocode_and_save(tweet)
+            thread.start_new_thread(geocode_and_save, (tweet,))
 
 if __name__ == '__main__':
     get_tweets(diseases)
