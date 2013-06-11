@@ -47,19 +47,11 @@ def geocode_and_save(tweet):
 
             json = {
                 'created_at': tweet.created_at,
-                'from_user': tweet.from_user,
-                'from_user_id': tweet.from_user_id,
-                'from_user_id_str': tweet.from_user_id_str,
-                'from_user_name': tweet.from_user_name,
                 'geo': tweet.geo,
                 'id': tweet.id,
                 'id_str': tweet.id_str,
-                'iso_language_code': tweet.iso_language_code,
                 'location': location,
                 'location_str': location_str,
-                'profile_image_url': tweet.profile_image_url,
-                'profile_image_url_https': tweet.profile_image_url_https,
-                'source': tweet.source,
                 'text': tweet.text
             }
             raw_tweets.insert(json)
