@@ -29,7 +29,7 @@ db.raw_tweets.mapReduce(
     reduce,
     {
         keeptemp: true,
-        out: 'diseaseAnalysis',
+        out: 'disease_analysis',
         verbose: true,
         scope: {
             diseases: {
@@ -41,8 +41,8 @@ db.raw_tweets.mapReduce(
             },
 
             firstDayOfWeek: function (date){
-                week = new Date(date.setDate(date.getDate() - date.getDay()));
-                return new Date(week.getDate() + '-' + week.getMonth() + '-' + week.getYear());
+                var week = new Date(date.setDate(date.getDate() - date.getDay()));
+                return new Date(week.getUTCFullYear(), week.getMonth() + 1, week.getDate());
             }
         }
     }
