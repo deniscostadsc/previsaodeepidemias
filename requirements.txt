@@ -1,4 +1,4 @@
-pymongo==2.2.1
+pymongo==2.5.2
 tweepy==1.10
 nltk==3.6.6
 numpy==1.21.0
