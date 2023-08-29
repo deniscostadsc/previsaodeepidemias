@@ -1,5 +1,5 @@
 pymongo==2.2.1
-tweepy==1.10
+tweepy==3.0
 nltk==3.6.6
 numpy==1.21.0
 matplotlib==1.2.1
